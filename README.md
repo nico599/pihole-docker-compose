@@ -22,17 +22,26 @@ docker/stable,now 1.5-2 all [installed]
 
 ## docker-compose 
 
-The main configuration is in this file it is recommended to review it.
+The main configuration is in this file (docker-compose.yml) it is recommended to review it.
 
 ## upgrade.sh
 
-This takes care of upgrading, and will stop and start services as required.
+This takes care of initializing and upgrading, but also running, and will stop and start services as required.
 
 Beware that this attempts to cleanup docker images, could be destructive on shared hosts.
 
-## configuration
+## mounted volumes
 
-This creates an application available at the IP you configure for $SERVERIP in .env
+Familiarize yourself with these docker-volumes as they might be platform specific, keep in mind theyre not essential, but you need `'./pihole_fs/etc-pihole:/etc/pihole'` for persistant storage.
+
+```yml
+volumes:
+      - './pihole_fs/etc-pihole:/etc/pihole'
+      - './pihole_fs/etc-dnsmasq.d:/etc/dnsmasq.d'
+      - '/var/log/pihole:/var/log/pihole/'
+      - '/etc/hosts:/etc/hosts'  # Host mappings (optional)
+      - '/etc/localtime:/etc/localtime:ro'  # Keep system timezone synced
+```
 
 ## .env
 
