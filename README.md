@@ -38,9 +38,10 @@ This creates an application available at the IP you configure for $SERVERIP in .
 
 this holds the following key items:
 
+```.env
 WEBPASSWORD=examplepass
 SERVERIP=192.168.1.53
-
+```
 # pihole_fs
 
 create this folder in the current working directory if it doesnt exist, or map elsewhere in docker-compose.
