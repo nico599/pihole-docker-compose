@@ -32,9 +32,9 @@ docker container prune -f
 echo "Stopping the current Pi-hole container..."
 docker-compose down
 
-# Bring down the current container
-echo "Stopping the current Pi-hole container..."
-docker-compose down
+# remove current pihole docker
+echo "remove any docker processes called pihole"
+docker rm -f pihole
 
 # Bring up the new container with the latest image
 echo "Starting the Pi-hole container with the latest image..."
